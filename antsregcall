@@ -1,0 +1,41 @@
+antsRegistration -d 3 --float 0 \
+-o [output_21MAY2020/G12_to_NMTv5,output_21MAY2020/G12_to_NMT_Warpedv5.nii] \
+--use-histogram-matching 0 \
+--initial-moving-transform [output_21MAY2020/NMT_long_4reg_crop.nii,output_21MAY2020/filledimageN4.nii,1] \
+--transform Translation[ 0.1 ] \
+	--metric Mattes[ output_21MAY2020/NMT_long_4reg_crop.nii,output_21MAY2020/filledimageN4.nii,1,32,None ] \
+	--convergence [ 2025x2025x2025x2025x2025x2025x2025x675,1e-7,10 ] \
+	--shrink-factors 9x9x9x8x7x6x5x4 \
+	--smoothing-sigmas 2.3356349507920524x2.1233045007200477x1.9109740506480428x1.6986436005760381x1.4863131505040335x1.2739827004320285x1.0616522503600239x0.8493218002880191mm \
+	--masks [ NOMASK,NOMASK ] \
+--transform Rigid[ 0.1 ] \
+	--metric Mattes[ output_21MAY2020/NMT_long_4reg_crop.nii,output_21MAY2020/filledimageN4.nii,1,43,None ] \
+	--convergence [ 2025x2025x675x225,1e-7,10 ] \
+	--shrink-factors 6x5x4x3 \
+	--smoothing-sigmas 1.2739827004320285x1.0616522503600239x0.8493218002880191x0.6369913502160143mm \
+	--masks [ NOMASK,NOMASK ] \
+--transform Similarity[ 0.1 ] \
+	--metric Mattes[ output_21MAY2020/NMT_long_4reg_crop.nii,output_21MAY2020/filledimageN4.nii,1,64,None ] \
+	--convergence [ 675x225x75,1e-7,10 ] \
+	--shrink-factors 4x3x2 \
+	--smoothing-sigmas 0.8493218002880191x0.6369913502160143x0.42466090014400953mm \
+	--masks [ NOMASK,NOMASK ] \
+--transform Similarity[ 0.1 ] \
+	--metric Mattes[ output_21MAY2020/NMT_long_4reg_crop.nii,output_21MAY2020/filledimageN4.nii,1,64,None ] \
+	--convergence [ 675x225x75,1e-7,10 ] \
+	--shrink-factors 4x3x2 \
+	--smoothing-sigmas 0.8493218002880191x0.6369913502160143x0.42466090014400953mm \
+	--masks [ NOMASK,output_21MAY2020/subcort_mask_final_lr.nii ] \
+--transform Affine[ 0.1 ] \
+	--metric Mattes[ output_21MAY2020/NMT_long_4reg_crop.nii,output_21MAY2020/filledimageN4.nii,1,64,None ] \
+	--convergence [ 675x225x75x25x25,1e-7,10 ] \
+	--shrink-factors 4x3x2x1x1 \
+	--smoothing-sigmas 0.8493218002880191x0.6369913502160143x0.42466090014400953x0.21233045007200477x0mm \
+	--masks [ NOMASK,output_21MAY2020/subcort_mask_final_lr.nii ] \
+--transform SyN[0.1,3,0] \
+	--metric  CC[output_21MAY2020/NMT_long_4reg_crop.nii,output_21MAY2020/filledimageN4.nii,1,4,None] \
+	--convergence [ 2025x2025x2025x2025x2025x2025x2025x675x225x75x100x100,1e-7,10 ] \
+	--shrink-factors 9x9x9x8x7x6x5x4x3x2x1x1 \
+	--smoothing-sigmas 2.33563495079x2.12330450072x1.91097405065x1.69864360058x1.4863131505x1.27398270043x1.06165225036x0.849321800288x0.636991350216x0.424660900144x0.212330450072x0mm \
+	--masks [ NOMASK,output_21MAY2020/subcort_mask_final_lr.nii ] \
+-v
